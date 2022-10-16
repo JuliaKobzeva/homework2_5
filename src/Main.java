@@ -1,29 +1,25 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        example();
 
-        Human human1 = new Human("Маша");
-        Human human2 = new Human("Cаша");
-        Human human3 = new Human("Паша");
-        Human human4 = new Human("Даша");
-        Human human5 = new Human("Наташа");
-        Human human6 = new Human("Света");
-        Human human7 = new Human("Марина");
-        Human human8 = new Human("Игорь");
+    }
 
-        Supermarket<Human> supermarket = new Supermarket<>("супермаркет");
-
-        supermarket.addHuman(human1);
-        supermarket.addHuman(human2);
-        supermarket.addHuman(human3);
-        supermarket.addHuman(human4);
-        supermarket.addHuman(human5);
-        supermarket.addHuman(human6);
-        supermarket.addHuman(human7);
-        supermarket.addHuman(human8);
-
-        supermarket.printInfo();
-
+    static void example() {
+        List<List<String>> biDemArrList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            biDemArrList.add(i, new ArrayList<>());
+            for (int j = 0; j < 8; j++) {
+                biDemArrList.get(i).add((j + i) % 2 == 1 ? "●" : "◯");
+            }
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(biDemArrList.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
     }
 }
